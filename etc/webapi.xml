@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <!-- Managing Cart Mask -->
+    <route url="/V1/carts/decypherMask/:maskedQuoteId" method="POST">
+        <service class="Netpascal\Masked\Api\MaskedQuoteIdToQuoteIdInterface" method="execute"/>
+        <resources>
+            <resource ref="Magento_Cart::manage" />
+        </resources>
+    </route>
+    <route url="/V1/carts/cypherId/:quoteId" method="POST">
+        <service class="Netpascal\Masked\Api\QuoteIdToMaskedQuoteIdInterface" method="execute"/>
+        <resources>
+            <resource ref="Magento_Cart::manage" />
+        </resources>
+    </route>
+</routes>
