@@ -1,0 +1,9 @@
+
+type Query {
+    MaskQuote (
+        id: Int @doc(description: "Quote id")
+    ): String  @resolver(class: "Netpascal\\Masked\\Model\\QuoteIdToMaskedQuoteId") 
+    unMaskQuote (
+        identifier: String
+    ): Int @resolver(class: "Netpascal\\Masked\\Model\\MaskedQuoteIdToQuoteId")
+}
